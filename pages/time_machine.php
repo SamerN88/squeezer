@@ -316,8 +316,7 @@ TAB;
                         <option> 2:30 PM </option>
                         <option> 3:00 PM </option>
                         <option> 3:30 PM </option>
-                        <option> 4:00 PM </option>
-                        <option value="4:30 PM"> 4:30 PM (market close) </option>
+                        <option value="4:00 PM"> 4:00 PM (market close) </option>
                         </select>
                     </td>
                     <td>
