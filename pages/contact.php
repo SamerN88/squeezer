@@ -71,7 +71,7 @@ FORM;
                 <a href="../index.html">HOME</a>
                 <a href="learn_more.html">LEARN MORE</a>
                 <a href="time_machine.php">TIME MACHINE</a>
-                <a href="contact.html" style="border-bottom: 5px solid black; border-top: 5px solid transparent; line-height: 70px">CONTACT</a>
+                <a href="contact.php" style="border-bottom: 5px solid black; border-top: 5px solid transparent; line-height: 70px">CONTACT</a>
             </div> 
         </header>
 
