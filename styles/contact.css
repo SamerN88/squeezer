@@ -42,7 +42,7 @@ form {
     border: 2px solid rgb(235, 34, 34);
 }
 
-#form-message {
+#message {
     overflow: scroll;
     height: 150px;
     resize: vertical;
