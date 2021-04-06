@@ -1,0 +1,93 @@
+#hotbox {
+    width: fit-content;
+    background-color: white;
+    padding: 20px;
+    border-radius: 17px;
+}
+
+#hotbox-border-wrapper {
+    width: fit-content;
+    background-image: linear-gradient(0deg, #ffd000, orange 41.07%, red 76.05%);
+    border-radius: 20px;
+    padding: 3px;
+    margin: 0 auto;
+}
+
+#hot-stocks-container {
+    display: flex
+}
+
+#hotbox h1 {
+    margin: 0px;
+    text-align: center;
+}
+
+.hot-stock-square {
+    height: 150px;
+    width: 150px;
+    background-image: linear-gradient(white, #e8ebfc);  /* alternative is white -> #fffd91 */
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    border: 2px solid #b2b3c2;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.15);
+    /* border-top: 2px solid #b2b3c2;
+    border-left: 2px solid #b2b3c2;
+    border-bottom: 2px solid #73747e;
+    border-right: 2px solid #73747e; */
+}
+
+.hot-stock-ticker {
+    text-align: center;
+    margin: 10px;
+    margin-top: 5px
+}
+
+.hot-stock-info {
+    font-size: 10pt;
+}
+
+.hot-stock-info p span {
+    color: blue
+}
+
+/*---------------------- TEMPORARY ----------------------*/
+/**/            #hot-stock-change1 {                   /**/
+/**/                color: red                       /**/
+/**/            }                                      /**/
+/**/            #hot-stock-change2 {                   /**/
+/**/                color: rgb(0, 202, 91)          /**/
+/**/            }                                      /**/
+/**/            #hot-stock-change3 {                   /**/
+/**/                color: red                       /**/
+/**/            }                                      /**/
+/*---------------------- TEMPORARY ----------------------*/
+
+.hot-stock-price {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.hot-stock-shortint, .hot-stock-sqzindex {
+    margin: 0
+}
+
+
+
+/* Glowing heat effect shadow animation */
+
+/* 
+(in original element):
+box-shadow: 4px 4px 10px 0px rgba(255, 100, 0, 0.1), 
+    4px -4px 10px 0px rgba(255, 100, 0, 0.1),
+    -4px 4px 10px 0px rgba(255, 100, 0, 0.1),
+    -4px -4px 10px 0px rgba(255, 100, 0, 0.1);
+animation: mymove 2s infinite;
+
+(add animation endpoint):
+@keyframes mymove {
+    50% {
+        box-shadow: none;
+        }
+}
+*/

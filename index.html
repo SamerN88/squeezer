@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Squeezer</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="Squeezer tracks stocks with high short positions and ranks them based on their potential to be short-squeezed.">
+    <meta name="author" content="Samer Najjar, Alfredo Huitron, Ayesha Din, Priyank Dharia">
+
+    <link rel="icon" type="image/png" href="img/squeezer_icon.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Nunito&display=swap">
+    <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/hotbox.css">
+    <link rel="stylesheet" href="styles/stock_table.css">
+    <link rel="stylesheet" href="styles/footer.css">
+
+    <script src="src/hotbox_border_effect.js" type="text/javascript" defer></script>
+</head>
+
+<body>
+    <div id="content-container">
+
+        <!-- AYESHA -->
+        <header>
+            <a id="logo-link" href=""><img id="logo" src="img/squeezer_logo_black.png" alt="SQUEEZER"></a>
+            <div id=navbar>
+                <a href="index.html" style="border-bottom: 5px solid black; border-top: 5px solid transparent; line-height: 70px">HOME</a>
+                <a href="pages/learn_more.html">LEARN MORE</a>
+                <a href="pages/time_machine.php">TIME MACHINE</a>
+                <a href="pages/contact.php">CONTACT</a>
+            </div> 
+        </header>
+        
+        <div class="normal-text center-text">
+            <h1>What is Squeezer?</h1>
+            <p>
+                Squeezer tracks stocks that have a high short position and ranks them based on 
+                how likely they are to be short-squeezed by 
+                communities such as <a href="https://www.reddit.com/r/wallstreetbets/" target="_blank">r/WallStreetBets</a>.
+            </p>
+            <p>
+                Below is a table of the top 20 stocks with the highest "squeeze index." The squeeze index of a 
+                stock represents its potential to be short-squeezed relative to other stocks. Various factors go  
+                into calculating a stock's squeeze index, including its short interest ratio and other technical 
+                indicators, as well as the stock's popularity on r/WallStreetBets. The table is updated every 30 
+                minutes. You can download the current version of the table, or access past versions by visiting 
+                the <a href="pages/time_machine.php">time machine</a> and choosing which date and time 
+                you'd like to visit.
+            </p>
+            <p>
+                For more info, see <a href="pages/learn_more.html">learn more</a>.
+            </p>
+        </div>
+
+        <!-- SAMER -->
+        <div id="hotbox-border-wrapper">
+            <div id="hotbox">
+                <h1>HOTTEST STOCKS 🚀</h1>
+                <div id="hot-stocks-container">
+                    <div id="hot-stock-square1" class="hot-stock-square">
+                        <h2 class="hot-stock-ticker">GME</h2>
+                        <div class="hot-stock-info">
+                            <p class="hot-stock-price">136.01 USD <span id="hot-stock-change1"><br>-0.99 (0.66%)</span></p>
+                            <p class="hot-stock-shortint">Short int. &emsp; <span>142%</span></p>
+                            <p class="hot-stock-sqzindex">Sqz. index &emsp; <span>100</span></p>
+                        </div>
+                    </div>
+                    <div id="hot-stock-square2" class="hot-stock-square">
+                        <h2 class="hot-stock-ticker">AMC</h2>
+                        <div class="hot-stock-info">
+                            <p class="hot-stock-price">2,083.01 USD <span id="hot-stock-change2"><br>+0.08 (0.66%)</span></p>
+                            <p class="hot-stock-shortint">Short int. &emsp; <span>120%</span></p>
+                            <p class="hot-stock-sqzindex">Sqz. index &emsp; <span>81</span></p>
+                        </div>
+                    </div>
+                    <div id="hot-stock-square3" class="hot-stock-square">
+                        <h2 class="hot-stock-ticker">SPCE</h2>
+                        <div class="hot-stock-info">
+                            <p class="hot-stock-price">106.22 USD <span id="hot-stock-change3"><br>-0.04 (0.66%)</span></p>
+                            <p class="hot-stock-shortint">Short int. &emsp; <span>102%</span></p>
+                            <p class="hot-stock-sqzindex">Sqz. index &emsp; <span>70</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ALFREDO -->
+        <h1 id="table-header">Top 20 Squeezable Stocks</h1>
+        <div id="table-div">        
+            <table class="stock-table">
+
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Ticker</th>
+                        <th>Company</th>
+                        <th>Short Interest %</th>
+                        <th>Squeeze Index</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>GME</td>
+                        <td>GameStop Corp.</td>
+                        <td>41.22%</td>
+                        <td>100</td>
+                    </tr>
+
+                    <tr>
+                        <td>2</td>
+                        <td>SKT</td>
+                        <td>Tanger Factory Outlet Centers</td>
+                        <td>39.98%</td>
+                        <td>98</td>
+                    </tr>
+
+                    <tr>
+                        <td>3</td>
+                        <td>ASO</td>
+                        <td>Academy Sports & Outdoors Inc</td>
+                        <td>37.18%</td>
+                        <td>95</td>
+                    </tr>
+
+                    <tr>
+                        <td>4</td>
+                        <td>RKT</td>
+                        <td>Rocket Companies Inc</td>
+                        <td>35.73%</td>
+                        <td>93</td>
+                    </tr>
+
+                    <tr>
+                        <td>5</td>
+                        <td>GOGO</td>
+                        <td>Gogo Inc</td>
+                        <td>35.04%</td>
+                        <td>91</td>
+                    </tr>
+
+                    <tr>
+                        <td>6</td>
+                        <td>CLVS</td>
+                        <td>Clovis Oncology Inc</td>
+                        <td>34.54%</td>
+                        <td>90</td>
+                    </tr>
+
+                    <tr>
+                        <td>7</td>
+                        <td>TRIT</td>
+                        <td>Triterras Inc</td>
+                        <td>32.04%</td>
+                        <td>88</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>8</td>
+                        <td>MDGL</td>
+                        <td>Madrigal Pharmaceuticals Inc</td>
+                        <td>31.60%</td>
+                        <td>86</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>9</td>
+                        <td>GSX</td>
+                        <td>GSX Techedu Inc</td>
+                        <td>31.19%</td>
+                        <td>85</td>
+                    </tr>
+
+                    <tr>
+                        <td>10</td>
+                        <td>OTRK</td>
+                        <td>Ontrak, Inc.</td>
+                        <td>30.86%</td>
+                        <td>83</td>
+                    </tr>
+
+                    <tr>
+                        <td>11</td>
+                        <td>LCI</td>
+                        <td>Lannett Company, Inc.</td>
+                        <td>28.97%</td>
+                        <td>81</td>
+                    </tr>
+
+                    <tr>
+                        <td>12</td>
+                        <td>AXDX</td>
+                        <td>Accelerate Diagnostics Inc</td>
+                        <td>28.95%</td>
+                        <td>78</td>
+                    </tr>
+
+                    <tr>
+                        <td>13</td>
+                        <td>REV</td>
+                        <td>Revlon Inc</td>
+                        <td>28.22%</td>
+                        <td>75</td>
+                    </tr>
+
+                    <tr>
+                        <td>14</td>
+                        <td>BLNK</td>
+                        <td>Blink Charging Co</td>
+                        <td>28.18%</td>
+                        <td>72</td>
+                    </tr>
+
+                    <tr>
+                        <td>15</td>
+                        <td>CRBP</td>
+                        <td>Corbus Pharmaceuticals Holding</td>
+                        <td>27.81%</td>
+                        <td>70</td>
+                    </tr>
+
+                    <tr>
+                        <td>16</td>
+                        <td>ISUN</td>
+                        <td>iSun Inc</td>
+                        <td>27.37%</td>
+                        <td>67</td>
+                    </tr>
+
+                    <tr>
+                        <td>17</td>
+                        <td>ICPT</td>
+                        <td>Intercept Pharmaceuticals Inc</td>
+                        <td>26.95%</td>
+                        <td>63</td>
+                    </tr>
+
+                    <tr>
+                        <td>18</td>
+                        <td>CVNA</td>
+                        <td>Carvana Co</td>
+                        <td>26.32%</td>
+                        <td>61</td>
+                    </tr>
+
+                    <tr>
+                        <td>19</td>
+                        <td>VXRT</td>
+                        <td>Vaxart Inc</td>
+                        <td>26.30%</td>
+                        <td>57</td>
+                    </tr>
+
+                    <tr>
+                        <td>20</td>
+                        <td>SDC</td>
+                        <td>SmileDirectClub Inc</td>
+                        <td>26.23%</td>
+                        <td>39</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <!-- SAMER -->
+    <footer>
+        <span id="copyright">© Squeezer 2021</span>
+        <span class="center-text center-justify-text">
+            — Samer Najjar, Alfredo Huitron, Ayesha Din, Priyank Dharia —<br>
+            10 March 2021
+        </span>
+    </footer>
+</body>
+
+</html>

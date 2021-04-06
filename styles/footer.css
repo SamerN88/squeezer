@@ -1,0 +1,27 @@
+/* THIS FILE SHOULD BE LINKED ON EVERY PAGE */
+
+body {
+    /* These styles just ensure footer touches bottom of window if content is short or missing */
+	min-height: calc(100vh - 80px);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+footer {
+    height: 80px;
+    min-width: 900px;
+    background-color: #fffb00;
+    margin-top: 40px;
+    padding: 0px 30px;
+    display: flex;
+    bottom: 0
+}
+
+footer span {
+    align-self: center;
+}
+
+#copyright {
+    position: absolute;
+}

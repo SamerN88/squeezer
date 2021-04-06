@@ -1,0 +1,98 @@
+/* THIS FILE SHOULD BE LINKED ON EVERY PAGE */
+
+/* Squeezer yellow: #fffb00 */
+/* light Squeezer yellow: #fffd91 */
+
+/* General styles */
+html, body {
+    margin: 0;
+    font-family: Nunito, sans-serif;
+}
+
+body {
+	padding-top: 80px;
+}
+
+.normal-text {
+    font-size: 14pt;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.center-text {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.center-justify-text {
+    text-align: center;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+a {
+	color: #ffa500;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+::selection {
+	background-color: #ceff74;
+}
+
+/* Header styles */
+
+header {
+	width: 100%;
+	min-width: 900px;
+	top: 0;
+	position: fixed;
+	overflow: hidden;
+	z-index: 10000;
+	height: 80px;
+	background-color: #fffb00;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.30);
+}
+
+#logo-link {
+	display: flex;
+	align-items: center;
+}
+
+#logo {
+	height: 50px;
+	margin-left: 30px;
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+#navbar {
+	width: 700px;  /* 500px without HOME tab */
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	margin-right: 30px;
+}
+
+#navbar a {
+	line-height: 80px;
+	text-align: center;
+	padding: 0 20px;
+	color: black;
+	font-weight: bold;   
+	text-decoration: none;
+}
+
+#navbar a:hover {  /* change the link color to black on hover */
+  	background-color: black;
+  	color: #fffb00;
+}
