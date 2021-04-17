@@ -1,11 +1,19 @@
+var submitted = false;
+
+
 function validateEmail(email) {
     const re = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
     return re.test(String(email).toLowerCase());
 }
 
 
-function validateInput(event) {
+function validateInputAndSubmit(event) {
     event.preventDefault();
+
+    // Prevents user from submitting duplicate emails by clicking submit multiple times while form is processing
+    if (submitted) {
+        return;
+    }
 
     if (!validateEmail(email.value)) {
         $('#error-msg').html('Invalid email.');
@@ -17,6 +25,7 @@ function validateInput(event) {
     } 
     else {
         $('form').submit();
+        submitted = true;
     }
 }
 
@@ -33,6 +42,6 @@ function normalBorder(id) {
 }
 
 
-$('#submit-btn').click(validateInput);
+$('#submit-btn').click(validateInputAndSubmit);
 $('#email').focus(() => { normalBorder('email') });
 $('#message').focus(() => { normalBorder('message') });

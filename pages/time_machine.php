@@ -1,5 +1,8 @@
 <?php
 
+$time_machine_entry = $_COOKIE['time_machine_entry'];
+$display_table = TRUE;
+
 if ($_GET) {
     $day = $_GET['day'];
     $month = $_GET['month'];
@@ -8,11 +11,38 @@ if ($_GET) {
 
     $date = "$day $month $year";
 
-    // THIS IS A DUMMY TABLE; LATER WILL FETCH FROM DATABASE
+    // Remember the last time machine entry for 24 hours
+    setcookie('time_machine_entry', "$date!$time", time() + (3600 * 24), '/');
+} 
+else if ($time_machine_entry) {
+    $date_time = explode('!', $time_machine_entry);
 
+    $date = $date_time[0];
+    $time = $date_time[1];
+
+    $date_exploded = explode(' ', $date);
+
+    $day = $date_exploded[0];
+    $month = $date_exploded[1];
+    $year = $date_exploded[2];
+} 
+else {
+    $display_table = FALSE;
+}
+
+
+if ($display_table) {
+    $table_html = get_table($date, $time);
+} else {
+    $table_html = '';
+}
+
+
+function get_table($date, $time) {
+    // THIS IS A DUMMY TABLE; LATER WILL FETCH FROM DATABASE
     $table_html = <<<TAB
     <div id="table-div">
-        <h3 id="table-title">Squeezer rankings on $date at $time:</h3>
+        <h3 id="table-title">Squeezer rankings on <span style="color:rgb(0, 202, 91)">$date</span> at <span style="color:rgb(0, 202, 91)">$time</span>:</h3>
         <table class="stock-table">
 
             <thead>
@@ -190,8 +220,7 @@ if ($_GET) {
     </div>
 TAB;
 
-} else {
-    $table_html = '';
+    return $table_html;
 }
 
 ?>
@@ -201,7 +230,7 @@ TAB;
 <html lang="en">
 
 <head>
-    <title>Squeezer | Time Machine</title>  <!-- Time Machine -->
+    <title>Squeezer | Time Machine</title>
     <meta charset="UTF-8">
     <meta name="description" content="View Squeezer's time machine, which shows past versions of its stock rankings.">
     <meta name="author" content="Samer Najjar, Alfredo Huitron, Ayesha Din, Priyank Dharia">
@@ -244,58 +273,58 @@ TAB;
                     <td><label><b>Select date: </b></label></td>
                     <td>
                         <select name = "day">
-                        <option> 1 </option>
-                        <option> 2 </option>
-                        <option> 3 </option>
-                        <option> 4 </option>
-                        <option> 5 </option>
-                        <option> 6 </option>
-                        <option> 7 </option>
-                        <option> 8 </option>
-                        <option> 9 </option>
-                        <option> 10 </option>
-                        <option> 11 </option>
-                        <option> 12 </option>
-                        <option> 13 </option>
-                        <option> 14 </option>
-                        <option> 15 </option>
-                        <option> 16 </option>
-                        <option> 17 </option>
-                        <option> 18 </option>
-                        <option> 19 </option>
-                        <option> 20 </option>
-                        <option> 21 </option>
-                        <option> 22 </option>
-                        <option> 23 </option>
-                        <option> 24 </option>
-                        <option> 25 </option>
-                        <option> 26 </option>
-                        <option> 27 </option>
-                        <option> 28 </option>
-                        <option> 29 </option>
-                        <option> 30 </option>
-                        <option> 31 </option>
+                        <option <?php print($day == 1 ? 'selected' : ''); ?>> 1 </option>
+                        <option <?php print($day == 2 ? 'selected' : ''); ?>> 2 </option>
+                        <option <?php print($day == 3 ? 'selected' : ''); ?>> 3 </option>
+                        <option <?php print($day == 4 ? 'selected' : ''); ?>> 4 </option>
+                        <option <?php print($day == 5 ? 'selected' : ''); ?>> 5 </option>
+                        <option <?php print($day == 6 ? 'selected' : ''); ?>> 6 </option>
+                        <option <?php print($day == 7 ? 'selected' : ''); ?>> 7 </option>
+                        <option <?php print($day == 8 ? 'selected' : ''); ?>> 8 </option>
+                        <option <?php print($day == 9 ? 'selected' : ''); ?>> 9 </option>
+                        <option <?php print($day == 10 ? 'selected' : ''); ?>> 10 </option>
+                        <option <?php print($day == 11 ? 'selected' : ''); ?>> 11 </option>
+                        <option <?php print($day == 12 ? 'selected' : ''); ?>> 12 </option>
+                        <option <?php print($day == 13 ? 'selected' : ''); ?>> 13 </option>
+                        <option <?php print($day == 14 ? 'selected' : ''); ?>> 14 </option>
+                        <option <?php print($day == 15 ? 'selected' : ''); ?>> 15 </option>
+                        <option <?php print($day == 16 ? 'selected' : ''); ?>> 16 </option>
+                        <option <?php print($day == 17 ? 'selected' : ''); ?>> 17 </option>
+                        <option <?php print($day == 18 ? 'selected' : ''); ?>> 18 </option>
+                        <option <?php print($day == 19 ? 'selected' : ''); ?>> 19 </option>
+                        <option <?php print($day == 20 ? 'selected' : ''); ?>> 20 </option>
+                        <option <?php print($day == 21 ? 'selected' : ''); ?>> 21 </option>
+                        <option <?php print($day == 22 ? 'selected' : ''); ?>> 22 </option>
+                        <option <?php print($day == 23 ? 'selected' : ''); ?>> 23 </option>
+                        <option <?php print($day == 24 ? 'selected' : ''); ?>> 24 </option>
+                        <option <?php print($day == 25 ? 'selected' : ''); ?>> 25 </option>
+                        <option <?php print($day == 26 ? 'selected' : ''); ?>> 26 </option>
+                        <option <?php print($day == 27 ? 'selected' : ''); ?>> 27 </option>
+                        <option <?php print($day == 28 ? 'selected' : ''); ?>> 28 </option>
+                        <option <?php print($day == 29 ? 'selected' : ''); ?>> 29 </option>
+                        <option <?php print($day == 30 ? 'selected' : ''); ?>> 30 </option>
+                        <option <?php print($day == 31 ? 'selected' : ''); ?>> 31 </option>
                         </select>
                     </td>
                     <td>
                         <select name = "month">
-                        <option> January </option>
-                        <option> February </option>
-                        <option> March </option>
-                        <option> April </option>
-                        <option> May </option>
-                        <option> June </option>
-                        <option> July </option>
-                        <option> August </option>
-                        <option> September </option>
-                        <option> October </option>
-                        <option> November </option>
-                        <option> December </option>
+                        <option <?php print($month == 'January' ? 'selected' : ''); ?>> January </option>
+                        <option <?php print($month == 'February' ? 'selected' : ''); ?>> February </option>
+                        <option <?php print($month == 'March' ? 'selected' : ''); ?>> March </option>
+                        <option <?php print($month == 'April' ? 'selected' : ''); ?>> April </option>
+                        <option <?php print($month == 'May' ? 'selected' : ''); ?>> May </option>
+                        <option <?php print($month == 'June' ? 'selected' : ''); ?>> June </option>
+                        <option <?php print($month == 'July' ? 'selected' : ''); ?>> July </option>
+                        <option <?php print($month == 'August' ? 'selected' : ''); ?>> August </option>
+                        <option <?php print($month == 'September' ? 'selected' : ''); ?>> September </option>
+                        <option <?php print($month == 'October' ? 'selected' : ''); ?>> October </option>
+                        <option <?php print($month == 'November' ? 'selected' : ''); ?>> November </option>
+                        <option <?php print($month == 'December' ? 'selected' : ''); ?>> December </option>
                         </select>
                     </td>
                     <td>
                         <select name = "year">
-                        <option> 2021 </option>
+                        <option <?php print($year == 2021 ? 'selected' : ''); ?>> 2021 </option>
                         </select>
                     </td>
             </tr>
@@ -303,27 +332,23 @@ TAB;
                 <td><label><b>Select time: </b></label></td>
                     <td>
                         <select name = "time">
-                        <option value="9:30 AM"> 9:30 AM (market open) </option>
-                        <option> 10:00 AM </option>
-                        <option> 10:30 AM </option>
-                        <option> 11:00 AM </option>
-                        <option> 11:30 AM </option>
-                        <option> 12:00 PM </option>
-                        <option> 12:30 PM </option>
-                        <option> 1:00 PM </option>
-                        <option> 1:30 PM </option>
-                        <option> 2:00 PM </option>
-                        <option> 2:30 PM </option>
-                        <option> 3:00 PM </option>
-                        <option> 3:30 PM </option>
-                        <option value="4:00 PM"> 4:00 PM (market close) </option>
+                        <option <?php print($time == '9:30 AM' ? 'selected' : ''); ?> value="9:30 AM"> 9:30 AM (market open) </option>
+                        <option <?php print($time == '10:00 AM' ? 'selected' : ''); ?>> 10:00 AM </option>
+                        <option <?php print($time == '10:30 AM' ? 'selected' : ''); ?>> 10:30 AM </option>
+                        <option <?php print($time == '11:00 AM' ? 'selected' : ''); ?>> 11:00 AM </option>
+                        <option <?php print($time == '11:30 AM' ? 'selected' : ''); ?>> 11:30 AM </option>
+                        <option <?php print($time == '12:00 PM' ? 'selected' : ''); ?>> 12:00 PM </option>
+                        <option <?php print($time == '12:30 PM' ? 'selected' : ''); ?>> 12:30 PM </option>
+                        <option <?php print($time == '1:00 PM' ? 'selected' : ''); ?>> 1:00 PM </option>
+                        <option <?php print($time == '1:30 PM' ? 'selected' : ''); ?>> 1:30 PM </option>
+                        <option <?php print($time == '2:00 PM' ? 'selected' : ''); ?>> 2:00 PM </option>
+                        <option <?php print($time == '2:30 PM' ? 'selected' : ''); ?>> 2:30 PM </option>
+                        <option <?php print($time == '3:00 PM' ? 'selected' : ''); ?>> 3:00 PM </option>
+                        <option <?php print($time == '3:30 PM' ? 'selected' : ''); ?>> 3:30 PM </option>
+                        <option <?php print($time == '4:00 PM' ? 'selected' : ''); ?> value="4:00 PM"> 4:00 PM (market close) </option>
                         </select>
                     </td>
                     <td>
-                        <!-- <select name = "period">
-                            <option> AM </option>
-                            <option> PM </option>
-                        </select> -->
                         <span style="color:gray; font-size:12pt">(EST)</span>
                     </td>
             </tr>

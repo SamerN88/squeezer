@@ -2,6 +2,11 @@
 
 require_once('../src/PHPMailer/PHPMailerAutoload.php');
 
+$emails_sent = $_COOKIE['emails_sent'];
+
+// HTML for thank you note after form is sent
+$form_html = '<h2 class="center-text center-justify-text">Thank you for your feedback!<br><span style="font-size:24pt; color:rgb(0, 202, 91)">✔</span></h2>';
+
 if ($_POST) {
     $name = $_POST['name'];
     $email = $_POST['email'];
@@ -26,8 +31,13 @@ if ($_POST) {
     $mail->AddAddress('team.squeezer@gmail.com');
     $mail->Send();
 
-    $form_html = '<h2 class="center-text center-justify-text">Thank you for your feedback!<br><span style="font-size:24pt; color:rgb(0, 202, 91)">✔</span></h2>';
-} else {
+    // Tracks number of emails sent; limit users to 2 emails per 12 hours
+    setcookie('emails_sent', ++$emails_sent, time() + (3600 * 12), '/');
+} 
+else if ($emails_sent == 2) {
+    NULL;
+} 
+else {
     $form_html = <<<FORM
     <h2 class="center-text center-justify-text">Contact form</h2>
     <input type="text" class="formEntry" placeholder="Name (optional)" name="name">
@@ -85,7 +95,8 @@ FORM;
             hedge funds. We hope you find this site useful!
         </p>
 
-        <p class="normal-text center-text center-justify-text">Have any questions or comments? Fill out the form below and we'll respond ASAP.
+        <p class="normal-text center-text center-justify-text">
+            Have any questions or comments? Fill out the form below and we'll respond ASAP.
         </p>
 
         <div>
